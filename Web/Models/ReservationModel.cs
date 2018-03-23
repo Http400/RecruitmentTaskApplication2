@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Web;
 
-namespace DAL.Entities
+namespace Web.Models
 {
-    public class Reservation : IEntityBase
+    public class ReservationModel
     {
         public int ID { get; set; }
         public string Code { get; set; }
@@ -14,6 +16,11 @@ namespace DAL.Entities
         public string Currency { get; set; }
         public int Commission { get; set; }
         public string Source { get; set; }
-        public virtual ICollection<Guest> Guests { get; set; }
+        public List<GuestModel> Guests { get; set; }
+
+        public ReservationModel()
+        {
+            Guests = new List<GuestModel>();
+        }
     }
 }

@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-namespace DAL.Entities
+using System.Linq;
+using System.Web;
+
+namespace Web.Models
 {
-    public class Guest : IEntityBase
+    public class GuestModel
     {
         public int ID { get; set; }
         public string Email { get; set; }
@@ -13,6 +16,11 @@ namespace DAL.Entities
         public string City { get; set; }
         public DateTime Birthdate { get; set; }
         public string PostCode { get; set; }
-        public virtual ICollection<Reservation> Reservations { get; set; }
+        public List<ReservationModel> Reservations { get; set; }
+
+        public GuestModel()
+        {
+            Reservations = new List<ReservationModel>();
+        }
     }
 }
