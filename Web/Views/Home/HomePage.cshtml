@@ -1,0 +1,25 @@
+﻿<div class="container">
+    <h3>Reservations</h3>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Reservation code</th>
+                <th>Creation date</th>
+                <th>Check in date</th>
+                <th>Check out date</th>
+                <th>Guests</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="reservation in vm.reservations">
+                <td>{{ reservation.Code }}</td>
+                <td>{{ reservation.CreationDate | date:'dd.MM.yyyy' }}</td>
+                <td>{{ reservation.CheckInDate | date:'dd.MM.yyyy' }}</td>
+                <td>{{ reservation.CheckOutDate | date:'dd.MM.yyyy' }}</td>
+                <td><span ng-repeat="guest in reservation.Guests">{{ guest.Name }} </span></td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
